@@ -12,12 +12,15 @@ function updateSubtotal(product) {
 
 function calculateAll() {
   let products = document.getElementsByClassName('product');
-  products = [...products].forEach(elm => updateSubtotal(elm));
-
-  
-
-  // ITERATION 3
-  //... your code goes here
+  products = [...products].forEach(elm => {
+    updateSubtotal(elm)
+  });
+  let productSubs = document.getElementsByClassName('subtotal');
+  total = [...productSubs].reduce((acc, subTotal) => 
+    acc + Number(subTotal.innerHTML), 0
+  )
+  let h2Total = document.getElementById('total-value')
+  h2Total.innerHTML = total
 }
 
 // ITERATION 4
